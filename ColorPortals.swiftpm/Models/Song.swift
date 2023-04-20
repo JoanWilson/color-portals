@@ -8,6 +8,5 @@
 import Foundation
 
 enum Song: String {
-    case challengeSong = "challenge-song"
     case mainSong = "main-song"
 }

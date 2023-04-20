@@ -1,7 +1,9 @@
 import SwiftUI
+import AVFoundation
 
 struct Story01View: View {
     @Environment(\.mainWindowSize) var windowSize
+
     var body: some View {
         ZStack(alignment: .bottom) {
             CutsceneView(historyText: "This playgrounds app tells a science fiction story based on the multiverse.\n Please keep your iPad in portrait position.")
@@ -31,8 +33,8 @@ struct Story01View: View {
 
 
 
-struct Story01View_Previews: PreviewProvider {
-    static var previews: some View {
-        Story01View()
-    }
-}
+//struct Story01View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Story01View()
+//    }
+//}

@@ -123,7 +123,7 @@ extension PortalViewController {
         lightNode.constraints = [constraint]
 
 
-        node.addChildNode(lightNode)
+//        node.addChildNode(lightNode)
         node.addChildNode(leftWall)
         node.addChildNode(rightWall)
         node.addChildNode(topWall)
@@ -131,7 +131,7 @@ extension PortalViewController {
         node.addChildNode(backWall)
         node.addChildNode(leftDoorWall)
         node.addChildNode(rightDoorWall)
-        node.addChildNode(nodeVan)
+//        node.addChildNode(nodeVan)
         return node
     }
 }

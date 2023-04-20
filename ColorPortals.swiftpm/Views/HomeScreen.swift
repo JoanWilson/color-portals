@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct HomeScreen: View {
     @State private var idle: Bool = false
+    @State private var mainPlayer: AVAudioPlayer?
     
     var body: some View {
         NavigationStack {
@@ -28,6 +30,8 @@ struct HomeScreen: View {
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
+                }.onDisappear {
+                    mainPlayer?.stop()
                 }
             }
             .padding()
@@ -49,9 +53,12 @@ struct HomeScreen: View {
                     .background(.black)
             }
             .onAppear {
+                playSoundtrack()
                 withAnimation {
                     idle = true
+
                 }
+                playSoundtrack()
             }
         }
         .tint(.green)
@@ -60,6 +67,22 @@ struct HomeScreen: View {
 
         
     }
+
+    func playSoundtrack() {
+            guard let url = Bundle.main.url(
+                forResource: Song.mainSong.rawValue, withExtension: "mp3"
+            ) else { return }
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+                mainPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+                mainPlayer?.numberOfLoops = -1
+                guard let player = mainPlayer else { return }
+                player.play()
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
 }
 
 
