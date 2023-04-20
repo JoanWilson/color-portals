@@ -123,7 +123,7 @@ extension FinalPortalViewController {
         lightNode.constraints = [constraint]
 
 
-//        node.addChildNode(lightNode)
+        node.addChildNode(lightNode)
         node.addChildNode(leftWall)
         node.addChildNode(rightWall)
         node.addChildNode(topWall)
