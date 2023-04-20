@@ -107,12 +107,6 @@ extension PortalViewController {
 
         light.spotInnerAngle = 0
         light.spotOuterAngle = 120
-//        light.zNear = 0.0001
-//        light.zFar = 10
-//        light.castsShadow = false
-//        light.shadowRadius = 200
-//        light.shadowColor = UIColor.black.withAlphaComponent(0.1)
-//        light.shadowMode = .deferred
 
         let constraint = SCNLookAtConstraint(target: topWall)
         constraint.isGimbalLockEnabled = true
@@ -123,7 +117,7 @@ extension PortalViewController {
         lightNode.constraints = [constraint]
 
 
-//        node.addChildNode(lightNode)
+        node.addChildNode(lightNode)
         node.addChildNode(leftWall)
         node.addChildNode(rightWall)
         node.addChildNode(topWall)
@@ -131,7 +125,7 @@ extension PortalViewController {
         node.addChildNode(backWall)
         node.addChildNode(leftDoorWall)
         node.addChildNode(rightDoorWall)
-//        node.addChildNode(nodeVan)
+        node.addChildNode(nodeVan)
         return node
     }
 }
