@@ -53,7 +53,7 @@ struct RewardPortalView: View {
                             Button {
                                 shouldPresentEndScene.toggle()
                             } label: {
-                                Text("Analise my Code")
+                                Text("Analyze my Code")
                                     .frame(minWidth: 80)
                                     .foregroundColor(Color.black)
                                     .padding()
