@@ -4,7 +4,7 @@ struct Story01View: View {
     @Environment(\.mainWindowSize) var windowSize
     var body: some View {
         ZStack(alignment: .bottom) {
-            CutsceneView(historyText: "This playgrounds app tells a science fiction story based on the multiverse and uses some frames from the color blindness test created by Dr. Shinobu Ishihara in 1917.\n Please keep your iPad in portrait position.")
+            CutsceneView(historyText: "This playgrounds app tells a science fiction story based on the multiverse.\n Please keep your iPad in portrait position.")
                 .ignoresSafeArea()
                 .edgesIgnoringSafeArea(.all)
                 .background(.black)

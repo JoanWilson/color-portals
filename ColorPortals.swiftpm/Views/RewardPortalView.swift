@@ -13,7 +13,7 @@ struct RewardPortalView: View {
     @State var shouldPresentEndScene: Bool = false
     var acceptanceCode: [String]
     var isDaltonic: Bool {
-        if acceptanceCode != ["8", "5", "12"] {
+        if acceptanceCode != ["Y", "Y", "Y"] {
             return false
         } else {
             return true

@@ -37,10 +37,6 @@ struct ContentManager: View {
                acceptanceCode[2] != "Yes",
                acceptanceCode[2] != "No" {
                 isCompleteButttonAvailable = true
-            } else if acceptanceCode[2] == "Yes" {
-                acceptanceCode[2] = "12"
-            } else if acceptanceCode[2] == "No" {
-                acceptanceCode[2] = "??"
             }
         }
     }
@@ -49,9 +45,9 @@ struct ContentManager: View {
     @State var isUnlocked: UnlockPortal = .nothing
     
     public var viewModel: [TestChallenge] = [
-        TestChallenge( acceptanceType: .first, pictureName: "1", questionDescription: "Feel free to enter in this portal, there is no dangerous inside that. Then look at the image on wall and answer me, which is the number that you can see?", options: ["8","3"]),
-        TestChallenge(acceptanceType: .second, pictureName: "2", questionDescription: "Feel free to enter in this portal, there is no dangerous inside that. Then look at the image on wall and answer me, which is the number that you can see?", options: ["5","2"]),
-        TestChallenge(acceptanceType: .third, pictureName: "3", questionDescription: "Feel free to enter in this portal, there is no dangerous inside that. Then look at the image on wall, it seems that each one of us can see a number 12, correct?", options: ["Yes", "No"]),
+        TestChallenge( acceptanceType: .first, pictureName: "1", questionDescription: "Feel free to enter in this portal, there is no dangerous inside that. Then look at the colors painted on the wall, are they the same?", options: ["Yes", "No"]),
+        TestChallenge(acceptanceType: .second, pictureName: "2", questionDescription: "Feel free to enter in this portal, there is no dangerous inside that. Then look at the colors painted on the wall, are they the same?", options: ["Yes", "No"]),
+        TestChallenge(acceptanceType: .third, pictureName: "3", questionDescription: "Feel free to enter in this portal, there is no dangerous inside that. Then look at the colors painted on the wall, are they the same?", options: ["Yes", "No"]),
     ]
     
     var body: some View {
@@ -64,7 +60,7 @@ struct ContentManager: View {
                         .foregroundColor(.white)
 
                     ScrollView(.vertical) {
-                        Text("Doctor Van Gordon needs your help to identify the numbers que estão contidos dentro dos circulos situados nas paredes da sala dos portais abaixo. Clique no nas opções abaixo para gerar os portais de cada parte do enigma. Ao resolver três deles, o código de segurança acima irá destravar o portal final para o presente que a versão do Dr. Van Gordon da sua realidade enviou para ele.")
+                        Text("Doctor Van Gordon needs your help to identify if the colored rectangles that are painted on the walls of the rooms inside the portals are similar or not. The challenge is divided into three portals that you need to generate below:")
                     }
                     .padding()
                     .foregroundColor(.green)
@@ -131,7 +127,7 @@ struct ContentManager: View {
                             shouldPresentFinal.toggle()
                             isUnlocked = .accepted
                         } label: {
-                            Text("Unlock do final Portal")
+                            Text("Open the Final Portal!")
                                 .foregroundColor(.white)
                                 .fontWeight(.black)
                                 .padding()
@@ -141,7 +137,7 @@ struct ContentManager: View {
                         Button {
                             isUnlocked = .locked
                         } label: {
-                            Text("Unlock do final Portal")
+                            Text("Open the Final Portal!")
                                 .foregroundColor(.white)
                                 .fontWeight(.black)
                                 .padding()
@@ -213,11 +209,23 @@ extension ContentManager: ContentManagerDelegate {
     func updateStateCodes(code: String, entrance: CodeAcceptance) {
         switch entrance {
         case .first:
-            acceptanceCode[0] = code
+            if code == "Yes" {
+                acceptanceCode[0] = "Y"
+            } else {
+                acceptanceCode[0] = "N"
+            }
         case .second:
-            acceptanceCode[1] = code
+            if code == "Yes" {
+                acceptanceCode[1] = "Y"
+            } else {
+                acceptanceCode[1] = "N"
+            }
         case .third:
-            acceptanceCode[2] = code
+            if code == "Yes" {
+                acceptanceCode[2] = "Y"
+            } else {
+                acceptanceCode[2] = "N"
+            }
         }
     }
 

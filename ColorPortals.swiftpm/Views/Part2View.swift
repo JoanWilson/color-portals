@@ -15,7 +15,7 @@ struct Part2View: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
 
-            Text("Well, the test consists of identifying a number inside some picture figures. Your mission is to tell me which number is inside each figure in the Portals. The problem is that not everyone sees colors the same way. In my case, I can't see any numbers! Who knows, maybe you can help me. See an example of an Ishihara painting.")
+            Text("This gift is available in a parallel reality that is shaped like a room. I created 3 portals that have an enigma that, when solved, will unlock a new portal where the gift sent to me is. Inside each portal are colored rectangles painted, but I can't differentiate the colors of each one of them. I need your help! Here's an example below:")
                 .lineLimit(100)
                 .foregroundColor(.white)
 
